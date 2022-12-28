@@ -1,0 +1,88 @@
+.image-hero {
+  height: 100vh;
+  width: 100%;
+}
+
+.main {
+  width: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  z-index: -1;
+  // position: fixed;
+  background-image: linear-gradient(
+    0deg,
+    rgba(145, 9, 10, 1) 0%,
+    rgba(20, 20, 20, 1) 80%
+  );
+}
+.stream-title > h1 {
+  // font-weight: 900;
+  font-size: 2rem;
+  color: white;
+}
+.main-inner-div {
+  min-width: 300px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  height: auto;
+  padding: 10px;
+  padding-top: 50px;
+}
+.cover-img {
+  width: 200px;
+  height: 200px;
+}
+.card-title {
+  text-align: justify;
+  padding: 10px;
+}
+.card-title > h1 {
+  text-align: inherit;
+}
+.card-container {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 10px;
+}
+.main-card {
+  display: flex;
+  padding: 20px;
+  background-color: rgba(35, 35, 35, 0.5);
+  border-radius: 5px;
+  align-items: flex-start;
+}
+
+.date-time {
+  flex-direction: row;
+}
+.book-button {
+  background-image: linear-gradient(
+    to right,
+    #e52d27 0%,
+    #b31217 51%,
+    #e52d27 100%
+  );
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+  cursor: pointer;
+}
+
+.book-button:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
