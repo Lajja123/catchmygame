@@ -24,7 +24,7 @@ export default function EditProfile({ account, contract, closeModal }) {
 
   //upload image function
   async function UploadImage(e) {
-    const file = e.target.files[0];
+    const file = await e.target.files[0];
     // console.log(file);
     setProfile_image(file);
     const client = new Web3Storage({

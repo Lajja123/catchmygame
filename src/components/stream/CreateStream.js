@@ -6,18 +6,18 @@ import { create, CID } from "ipfs-http-client";
 import "./createstream.scss";
 import cover from "../users/styles/Gaming4-5.jpg";
 import { Web3Storage } from "web3.storage";
+const user_address = "0xb14bd4448Db2fe9b4DBb1D7b8097D28cA57A8DE9";
 
 function CreateStream({ account, contract }) {
   const videoEl = useRef(null);
   const stream = useRef(null);
+  const mounted = useRef(false);
   const [session, setSession] = useState("");
   const [url, setUrl] = useState("");
-  const livepeerObject = new Livepeer("d72d5808-9b46-4bdf-9cb6-d703ca3e0acc");
+  const livepeerObject = new Livepeer("fbf20223-008c-4d6f-8bdb-5d6caec8eb29");
   const client = create("https://ipfs.infura.io:5001/api/v0");
   const getStreams = async () => {
-    const streams = await livepeerObject.Stream.get(
-      "00bf97a4-5264-4505-9fe5-469ca7686e53"
-    );
+    const streams = await livepeerObject.Stream.getAll({ isActive: false });
     console.log(streams);
   };
 
@@ -27,23 +27,11 @@ function CreateStream({ account, contract }) {
   const [add, setAdd] = useState("");
   const [record, setRecord] = useState("");
 
-  useEffect(() => {
-    (async () => {
-      videoEl.current.volume = 0;
-
-      stream.current = await navigator.mediaDevices.getUserMedia({
-        video: true,
-        audio: true,
-      });
-
-      videoEl.current.srcObject = stream.current;
-      videoEl.current.play();
-    })();
-  });
   const [heroImage, setHeroImage] = useState();
-  const [uploaded_image, setUploadedImage] = useState();
+  const [showUploaded_image, setUploadedImage] = useState();
+
   async function UploadImage(e) {
-    const file = e.target.files[0];
+    const file = await e.target.files[0];
     console.log(file);
     setHeroImage(file);
     const client = new Web3Storage({
@@ -51,7 +39,7 @@ function CreateStream({ account, contract }) {
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweGRDOGI5MDZiNUIyMjJFM2Y4MTUzRTI1OEE3OEFGNzZCQkU2NDdGYzgiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2Njg5NDE4NzgzNzgsIm5hbWUiOiJBbGxUaGF0RGF0YSJ9.sk1dShkPApqlSWYsNiZiY1sWUh1SDr8uRaMdc1npDNg",
     });
     const fileInput = document.querySelector('input[type="file"]');
-
+    console.log(fileInput);
     const rootCid = await client.put(fileInput.files, {
       name: "cat pics",
       maxRetries: 3,
@@ -63,11 +51,26 @@ function CreateStream({ account, contract }) {
       f = file.cid;
     }
     const url = `https://` + `${f}` + `.ipfs.w3s.link`;
+
     setUploadedImage(url);
     console.log(url);
+    // console.log(showUploaded_image);
+    // setHeroImage(url);
+    // console.log(url);
   }
 
   const onButtonClick = async () => {
+    (async () => {
+      videoEl.current.volume = 0;
+
+      stream.current = await navigator.mediaDevices.getUserMedia({
+        video: true,
+        audio: true,
+      });
+      videoEl.current.srcObject = stream.current;
+      videoEl.current.play();
+    })();
+
     const stream_ = await livepeerObject.Stream.create({
       name: "test_stream",
       profiles: [
@@ -96,9 +99,20 @@ function CreateStream({ account, contract }) {
     });
     console.log(stream_);
     console.log(stream_.streamKey);
-    if (record) {
-      stream_.setRecord(true);
-    }
+    const tx = await contract.createStream(
+      account,
+      title,
+      des,
+      "0xfe039eb325231e046f06f828c41382ac59f73e45",
+      showUploaded_image,
+      record
+    );
+    tx.wait();
+    console.log(title);
+    console.log(des);
+    console.log(add);
+    console.log(record);
+    stream_.setRecord(true);
     const current_stream = await livepeerObject.Stream.get(stream_.id);
     console.log("video id" + stream_.id);
     const result = await current_stream.setRecord(true);
@@ -106,6 +120,7 @@ function CreateStream({ account, contract }) {
     const url =
       "https://livepeercdn.com/hls/" + stream_.playbackId + "index.m3u8";
     setUrl(url);
+    console.log(url);
     const streamKey = stream_.streamKey;
 
     if (!stream.current) {
@@ -133,27 +148,35 @@ function CreateStream({ account, contract }) {
     session.on("error", (err) => {
       console.log("Stream error.", err.message);
     });
-
-    const tx = await contract.createStream(
-      account,
-      title,
-      des,
-      "0xfe039eb325231e046f06f828c41382ac59f73e45",
-      uploaded_image,
-      stream_.id,
-      record
-    );
-    tx.wait();
-    console.log(title);
-    console.log(des);
-    console.log(add);
-    console.log(record);
   };
 
   const closeStream = async () => {
-    session.close();
+    session.close("close", () => {
+      console.log("Stream stopped.");
+    });
   };
+  useEffect(() => {
+    if (!mounted) {
+      closeStream();
+    }
+  }, [mounted]);
   const hero_Image = useRef(null);
+
+  // const getUserDetails = async (e) => {
+  //   const tx = await contract.createStream(
+  //     account,
+  //     title,
+  //     des,
+  //     "0xfe039eb325231e046f06f828c41382ac59f73e45",
+  //     showUploaded_image,
+  //     record
+  //   );
+  //   tx.wait();
+  //   console.log(title);
+  //   console.log(des);
+  //   console.log(add);
+  //   console.log(record);
+  // };
 
   return (
     <>
@@ -218,12 +241,13 @@ function CreateStream({ account, contract }) {
                 <div className="cs-label">
                   {" "}
                   <p>Choose cover image for stream</p>
-                  {heroImage ? (
+                  {showUploaded_image ? (
                     <>
                       <img
+                        crossorigin="anonymous"
                         className="cs-uploaded-image"
-                        src={uploaded_image}
-                        alt=""
+                        src={showUploaded_image}
+                        alt="uploaded image"
                       />
                     </>
                   ) : (

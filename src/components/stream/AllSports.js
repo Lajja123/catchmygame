@@ -13,6 +13,7 @@ function AllSports({ account, contract }) {
     number = parseInt(number._hex, 16);
     for (let i = 1; i <= number; i++) {
       const stream = await contract.getAllStream(i);
+      console.log(stream);
       const cover = stream.img_cid;
       const title = stream.title;
       const user = stream.stream_creator;
@@ -27,6 +28,7 @@ function AllSports({ account, contract }) {
 
   useEffect(() => {
     getProfileData();
+
     // setLoading(false);
   }, [contract]);
 
@@ -54,7 +56,7 @@ function AllSports({ account, contract }) {
                   <div className="stream-img">
                     <div className="stream-img-main">
                       <a>
-                        <img src={inde[1]} alt="" crossOrigin="anonymous" />
+                        <img src={inde[0]} alt="" crossOrigin="anonymous" />
                       </a>
                     </div>
                   </div>
