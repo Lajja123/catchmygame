@@ -13,11 +13,10 @@ function AllSports({ account, contract }) {
     number = parseInt(number._hex, 16);
     for (let i = 1; i <= number; i++) {
       const stream = await contract.getAllStream(i);
-      console.log(stream);
-      const cover = stream.img_cid;
       const title = stream.title;
       const user = stream.stream_creator;
       const creator = await contract.getCreator(account);
+      const cover = stream.img_cid;
       const name = creator.creatorName;
       const cid = creator.photo_cid;
       data.push([cover, title, name, cid]);
@@ -56,7 +55,11 @@ function AllSports({ account, contract }) {
                   <div className="stream-img">
                     <div className="stream-img-main">
                       <a>
-                        <img src={inde[0]} alt="" crossOrigin="anonymous" />
+                        <img
+                          src={inde[0]}
+                          alt="uploaded image"
+                          crossOrigin="anonymous"
+                        />
                       </a>
                     </div>
                   </div>

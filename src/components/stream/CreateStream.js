@@ -99,15 +99,15 @@ function CreateStream({ account, contract }) {
     });
     console.log(stream_);
     console.log(stream_.streamKey);
-    const tx = await contract.createStream(
-      account,
-      title,
-      des,
-      "0xfe039eb325231e046f06f828c41382ac59f73e45",
-      showUploaded_image,
-      record
-    );
-    tx.wait();
+    // const tx = await contract.createStream(
+    //   account,
+    //   title,
+    //   des,
+    //   "0xfe039eb325231e046f06f828c41382ac59f73e45",
+    //   showUploaded_image,
+    //   record
+    // );
+    // tx.wait();
     console.log(title);
     console.log(des);
     console.log(add);

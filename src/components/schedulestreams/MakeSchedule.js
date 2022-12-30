@@ -64,19 +64,25 @@ function MakeSchedule({ account, contract }) {
   }
 
   const getScheduledDetails = async (e) => {
-    const time1 = start_date + " " + start_time;
-    const time2 = end_date + " " + end_time;
-    const tx = await contract.scheduleStream(
-      account,
-      profile_image_url,
-      title,
-      des,
-      time1,
-      time2,
-      rights,
-      price
-    );
-    tx.wait();
+    // const time1 = start_date + " " + start_time;
+    // const time2 = end_date + " " + end_time;
+    // const tx = await contract.scheduleStream(
+    //   account,
+    //   profile_image_url,
+    //   title,
+    //   des,
+    //   time1,
+    //   time2,
+    //   rights,
+    //   price
+    // );
+    // tx.wait();
+    console.log(title);
+    console.log(des);
+    // console.log(time1);
+    // console.log(time2);
+    console.log(rights);
+    console.log(price);
   };
   return (
     <div className="make-schedule-background">

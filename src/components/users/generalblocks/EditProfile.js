@@ -50,8 +50,8 @@ export default function EditProfile({ account, contract, closeModal }) {
   }
 
   const getUserDetails = async (e) => {
-    const tx = await contract.createProfile(account, name, profile_image_url);
-    tx.wait();
+    // const tx = await contract.createProfile(account, name, profile_image_url);
+    // tx.wait();
     console.log(name);
     console.log(profile_image_url);
   };
