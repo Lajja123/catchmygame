@@ -10,7 +10,9 @@ function Landingpage() {
   return (
     <>
       <div className="background-color background">
-        <img src={Heroimage} className="Heroimage" />
+        <div className="h-left">
+          <img src={Heroimage} className="Heroimage" />
+        </div>
         <div className="main-text">
           <div className="hero-text">
             CATCH MY <br />

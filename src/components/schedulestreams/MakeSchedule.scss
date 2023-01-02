@@ -142,3 +142,13 @@ input:focus {
     rgba(20, 20, 20, 1) 80%
   );
 }
+@media screen and (max-width: 1024px) {
+  .date-time {
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    justify-content: space-between;
+  }
+}

@@ -25,7 +25,7 @@ $gradient-color: linear-gradient(
 .nft-main-container-inner-div {
   min-width: 300px;
   max-width: 1200px;
-  width: 100%;
+  // width: 100%;
   margin: 0 auto;
   height: auto;
   padding: 10px;
@@ -117,5 +117,27 @@ $gradient-color: linear-gradient(
   flex-wrap: nowrap;
   span {
     padding-left: 1rem;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .nft-main-container-inner-div {
+    min-width: 300px;
+    max-width: 1200px;
+    // width: 100%;
+    margin: 0 auto;
+    height: auto;
+    padding: 20px;
+    padding-top: 50px;
+  }
+  .nft-main-content {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0px;
+    gap: 4rem;
+    width: 78%;
+    margin: 0 auto;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    padding-bottom: 3rem;
   }
 }

@@ -68,7 +68,7 @@ const Navbar = ({ setOpenWalletOption }) => {
                 </li>
                 <li
                   className={
-                    window.location.pathname === "/live-sports"
+                    window.location.pathname === "/live-stream"
                       ? "active"
                       : null
                   }

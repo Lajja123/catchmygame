@@ -8,7 +8,7 @@
                               'embedded-opentype', and 'svg' */
 }
 .Navbar {
-  width: 99.9%;
+  width: 100%;
   height: 30px;
   border: 1px #000 solid;
   position: absolute;
@@ -62,6 +62,8 @@
 }
 .background {
   height: calc(100vh - 120px);
+  display: flex;
+  justify-content: flex-end;
 }
 .Heroimage {
   position: absolute;
@@ -69,10 +71,12 @@
   bottom: 0;
   width: 35%;
 }
+
 .main-text {
   padding-top: 10%;
   padding-right: 10%;
   text-align: right;
+  /* width: 100%; */
 }
 
 .game {
@@ -81,7 +85,6 @@
 }
 .hero-text {
   font-size: 80px;
-  font-family: "Times New Roman", Times, serif;
   font-family: "MyFont";
 }
 
@@ -115,11 +118,46 @@
 .tag-line {
   padding-top: 20px;
 }
-/*
-
-Color Pallete
-  #EF84F5
-  #15265C
-  #2EE09A
-  #FFFFFF
-*/
+@media screen and (max-width: 1024px) {
+  .Livepeerlogo {
+    width: 100px;
+    padding-right: 20px;
+  }
+  .Polygonelogo {
+    width: 100px;
+    padding-right: 20px;
+  }
+  .Zoralogo {
+    width: 100px;
+    padding-right: 20px;
+  }
+  .Musiclogo {
+    width: 100px;
+    padding-right: 20px;
+  }
+  .nftstoragelogo {
+    width: 100px;
+    padding-right: 20px;
+  }
+  .hero-text {
+    font-size: 60px;
+  }
+  .Heroimage {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+  }
+  .background {
+    height: calc(100vh - 120px);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .main-text {
+    padding-top: 10%;
+    padding-right: 5%;
+    text-align: right;
+    /* width: 100%; */
+  }
+}

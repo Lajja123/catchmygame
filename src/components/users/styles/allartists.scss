@@ -33,14 +33,15 @@ $gradient-color: linear-gradient(
 .au-main-container-inner-div {
   min-width: 300px;
   max-width: 1200px;
-  width: 100%;
+  // width: 100%;
   margin: 0 auto;
   height: auto;
+  min-height: 120vh;
   padding: 10px;
   padding-top: 50px;
 }
 .au-grid-container {
-  padding-top: 1rem;
+  padding-top: 3rem;
   margin: 0 auto;
   display: grid;
   gap: 1rem;
@@ -107,5 +108,16 @@ $gradient-color: linear-gradient(
     .au-user-image:hover {
       cursor: pointer;
     }
+  }
+}
+@media screen and (max-width: 1024px) {
+  .au-main-container-inner-div {
+    min-width: 300px;
+    max-width: 1200px;
+    // width: 100%;
+    margin: 0 auto;
+    height: auto;
+    padding: 20px;
+    padding-top: 50px;
   }
 }

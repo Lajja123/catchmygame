@@ -17,10 +17,10 @@ $gradient-color: linear-gradient(
   flex-direction: row;
   flex-wrap: nowrap;
   // align-items: center;
-  // width: 80%;
+  // width: 100%;
   min-width: 300px;
   max-width: 1200px;
-  width: 100%;
+  // width: 100%;
   margin: 0 auto;
   height: auto;
   padding: 10px;
@@ -137,5 +137,22 @@ $gradient-color: linear-gradient(
   }
   #stream-lebel {
     padding-bottom: 10px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .cs-inner-div {
+    margin: auto;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    min-width: 300px;
+    max-width: 1200px;
+
+    margin: 0 auto;
+    height: auto;
+    padding: 60px;
+    padding-top: 50px;
   }
 }

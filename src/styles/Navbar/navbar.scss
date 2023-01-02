@@ -1,13 +1,15 @@
 .navbar-main {
   display: flex;
-  //   width: 100%;
+  // width: 100%;
+  // min-width: 300px;
+  // max-width: 1500px;
   //   position: fixed;
   background-color: rgba(20, 20, 20, 1);
   align-content: center;
   color: #fff;
   padding: 10px 20px;
   font-size: 18px;
-  margin: 0;
+  margin: 0 auto;
   height: 100px;
   justify-content: space-around;
   align-items: center;
@@ -42,6 +44,7 @@
       margin: 0px !important;
       align-items: center;
       align-content: center;
+      padding: 0;
 
       li {
         font-family: Inconsolata;
@@ -63,5 +66,40 @@
         }
       }
     }
+  }
+}
+//  ...................responsive.......................
+@media screen and (max-width: 1024px) {
+  .navbar-main {
+    font-size: 0.7rem;
+  }
+  .navbar-right {
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 10px;
+      margin: 0px !important;
+      align-items: center;
+      align-content: center;
+    }
+  }
+  .navbar-left {
+    font-weight: 700;
+    font-size: 20px;
+
+    .navbar-logo {
+      width: 100%;
+      min-width: 200px;
+      max-width: 900px;
+    }
+    .navbar-logo > img {
+      width: 70%;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .navbar-logo > img {
+    width: 70%;
+    height: 50px;
   }
 }
