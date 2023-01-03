@@ -39,6 +39,7 @@ const Navbar = ({ setOpenWalletOption }) => {
             <li className={window.location.pathname === "/" ? "active" : null}>
               <Link to="/">Home</Link>
             </li>
+            <div className="dropdown-content"></div>
             {address ? (
               <>
                 <li

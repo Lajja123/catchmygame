@@ -45,7 +45,7 @@ function ProfileStreamings({ account, contract }) {
 
   const navigate = useNavigate();
   const navigateToCreateNft = (id) => {
-    // navigate("/create-nft", { state: { id: id } });
+    navigate("/create-nft", { state: { id: id } });
   };
   const navigateToStreamPlay = (id) => {
     console.log(id);

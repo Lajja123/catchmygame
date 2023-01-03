@@ -1,3 +1,13 @@
+$gradient-color: linear-gradient(
+  90deg,
+  #fe0000,
+  #f71f1f,
+  #e75353,
+  #f71f1f,
+  #fe0000,
+  #f71f1f
+);
+
 .navbar-main {
   display: flex;
   // width: 100%;
@@ -49,10 +59,17 @@
 
       li {
         font-family: "FontsFree-Net-Poppins-Regular";
+        font-size: 1rem;
         &.active {
           background-color: white;
-          color: black !important;
-          padding: 5px;
+          // color: black !important;
+          // border: 1px solid #fe0000;
+          padding: 5px 10px;
+          background: $gradient-color;
+          background-size: 600% 200%;
+          animation: gradient 4s linear infinite;
+          animation-direction: alternate;
+          border-radius: 10px;
         }
 
         a {
@@ -61,7 +78,7 @@
         }
 
         .connect-btn {
-          font-size: 9px;
+          font-size: 1rem;
           cursor: pointer;
           padding: 5px;
         }

@@ -1,28 +1,42 @@
 $gradient-color: linear-gradient(
   90deg,
-  #ff3ba0,
-  #eb0079,
-  #ff0083,
-  #ffc4e2,
-  #ff3ba0,
-  #eb0079,
-  #b1005b
+  #fe0000,
+  #f71f1f,
+  #e75353,
+  #f71f1f,
+  #fe0000,
+  #f71f1f
 );
 
 .cn-main-container {
   min-height: 100vh;
   padding: 10px;
-  width: 90%;
+  // width: 90%;
   margin: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   align-items: flex-start;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: auto;
+  min-height: 120vh;
+  z-index: -1;
+  // position: fixed;
+  background-image: linear-gradient(
+    0deg,
+    rgba(145, 9, 10, 1) 0%,
+    rgba(20, 20, 20, 1) 80%
+  );
   h1 {
-    color: #ff0083;
+    color: #ff0000;
     font-size: 1.5rem;
     margin: 20px;
+  }
+  .cs-main-div {
+    width: 100%;
   }
   .cn-left-container,
   .cn-right-container {
@@ -32,11 +46,13 @@ $gradient-color: linear-gradient(
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 50%;
-    max-width: 50%;
+    width: 40%;
+    height: 80vh;
+    max-width: 40%;
     align-items: center;
-    border-radius: 20px;
-    background: rgba(35, 35, 35, 0.5);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.15);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 
@@ -50,7 +66,7 @@ $gradient-color: linear-gradient(
     button.cn-convert-button {
       margin: 0.5rem 0;
       // background: none;
-      border: 1px solid #ff0083;
+      border: none;
       border-radius: 10px;
       color: white;
       font-size: 0.8rem;
@@ -63,21 +79,32 @@ $gradient-color: linear-gradient(
     }
     textarea {
       color: white;
-      border: none;
-      background-color: rgba(35, 35, 35, 0.5);
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.15);
+      -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
       font-size: 1rem;
       padding: 10px;
       margin: 10px;
+      border: none;
+    }
+    video.nft-stream-video {
+      width: 40%;
+      border-radius: 20px;
+      height: 80vh;
     }
     input {
       color: white;
-      border: none;
-      background-color: rgba(35, 35, 35, 0.5);
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.15);
+      -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
       font-size: 1rem;
       padding: 10px;
       margin: 10px;
+      border: none;
     }
   }
   .cn-right-container {
@@ -85,5 +112,10 @@ $gradient-color: linear-gradient(
     flex-direction: column;
     justify-content: center;
     width: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.15);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
   }
 }

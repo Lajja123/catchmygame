@@ -82,7 +82,7 @@ $gradient-color: linear-gradient(
   object-fit: cover;
   object-position: center;
   border-radius: 10px;
-  padding-top: 20px;
+  // padding-top: 20px;
 }
 .nft-user {
   display: flex;
@@ -111,8 +111,8 @@ $gradient-color: linear-gradient(
   background-size: 600% 200%;
   animation: gradient 4s linear infinite;
   animation-direction: alternate;
-  border-color: #fe0000;
-  // border: none;
+  // border-color: none;
+  border: none;
   font-size: 0.8rem;
 }
 .nft-img-name {

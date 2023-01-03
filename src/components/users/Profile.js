@@ -125,19 +125,19 @@ function Profile({ account, contract }) {
                 NFTs
               </button>
               {/* <button
-              onClick={() => {
-                setStreamings(false);
-                setNFTs(false);
-                setCreateNFTs(true);
-              }}
-              className={
-                showCreateNFTs
-                  ? `profile-second-btns active`
-                  : `profile-second-btns`
-              }
-            >
-              Create NFT
-            </button> */}
+                onClick={() => {
+                  setStreamings(false);
+                  setNFTs(false);
+                  setCreateNFTs(true);
+                }}
+                className={
+                  showCreateNFTs
+                    ? `profile-second-btns active`
+                    : `profile-second-btns`
+                }
+              >
+                Create NFT
+              </button> */}
             </div>
             {showStreamings ? (
               <ProfileStreamings contract={contract} account={account} />
@@ -146,8 +146,8 @@ function Profile({ account, contract }) {
               <ProfileNfts contract={contract} account={account} />
             ) : null}
             {/* {showCreateNFTs ? (
-            <ProfileCreateNft contract={contract} account={account} />
-          ) : null} */}
+              <ProfileCreateNft contract={contract} account={account} />
+            ) : null} */}
           </section>
         </div>
       </section>

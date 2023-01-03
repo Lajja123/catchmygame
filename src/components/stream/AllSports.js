@@ -23,6 +23,7 @@ function AllSports({ account, contract }) {
     }
     setData(data);
     setLoading(false);
+    console.log(data);
   };
 
   useEffect(() => {
