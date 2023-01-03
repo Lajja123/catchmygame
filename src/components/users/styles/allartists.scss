@@ -1,13 +1,13 @@
-$gradient-color: linear-gradient(
-  90deg,
-  #ff3ba0,
-  #eb0079,
-  #ff0083,
-  #ffc4e2,
-  #ff3ba0,
-  #eb0079,
-  #b1005b
-);
+// $gradient-color: linear-gradient(
+//   90deg,
+//   #ff3ba0,
+//   #eb0079,
+//   #ff0083,
+//   #ffc4e2,
+//   #ff3ba0,
+//   #eb0079,
+//   #b1005b
+// );
 
 .au-main-container {
   width: 100%;
@@ -24,6 +24,9 @@ $gradient-color: linear-gradient(
   );
   h1 {
     font-size: 2rem;
+    letter-spacing: 5px;
+    font-family: "SpacePowerDemoRegular";
+    padding-bottom: 20px;
     // margin: 0.5rem;
     padding: 0%;
     // font-weight: 900;
@@ -80,16 +83,18 @@ $gradient-color: linear-gradient(
           margin: 5% 0;
           font-size: 1rem;
           font-weight: 700;
+          font-family: "FontsFree-Net-Poppins-Regular";
         }
         h4 {
           font-size: 0.7rem;
           margin: 0;
+          font-family: "FontsFree-Net-Poppins-Regular";
         }
       }
       .au-middle-p:before {
         position: absolute;
         content: "";
-        background-color: #ff0088;
+        background-color: #fe0000;
         left: 0;
         top: 50%;
         height: 100%;
@@ -101,7 +106,7 @@ $gradient-color: linear-gradient(
         padding: 16px 32px;
         border-radius: 10px;
         svg.ps-video-play-svg {
-          fill: #ff0083;
+          fill: #fe0000;
         }
       }
     }

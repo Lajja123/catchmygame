@@ -6,12 +6,14 @@ h1 {
   font-size: 1rem;
   font-weight: 700;
   margin: 0;
+  font-family: "FontsFree-Net-Poppins-Regular";
 }
 
 h3 {
   margin: 1.5rem 0%;
   font-size: 1rem;
   font-weight: 700;
+  font-family: "FontsFree-Net-Poppins-Regular";
 }
 
 .modalBackground {
@@ -101,6 +103,7 @@ svg.svg-close:hover {
 button.reset-btn {
   padding: 0.2rem 0.4rem;
   margin: 0 1rem;
+  font-family: "FontsFree-Net-Poppins-Regular";
   border: none;
   font-size: 0.8rem;
   background: #fe0000;
@@ -124,6 +127,7 @@ button.reset-btn:hover {
 
 .modalContainer .footer button {
   width: 5rem;
+  font-family: "FontsFree-Net-Poppins-Regular";
   height: 1.5rem;
   margin: 0.5rem;
   border: none;
@@ -155,6 +159,7 @@ button.reset-btn:hover {
     #fe0000,
     #f71f1f
   );
+  font-family: "FontsFree-Net-Poppins-Regular";
   background-size: 600% 200%;
   animation: gradient 4s linear infinite;
   animation-direction: alternate;

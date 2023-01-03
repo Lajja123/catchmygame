@@ -54,6 +54,7 @@ $gradient-color: linear-gradient(
       margin: 0.7rem 0.5rem;
       background: $gradient-color;
       border: none;
+      font-family: "FontsFree-Net-Poppins-Regular";
       border-radius: 5px;
       color: white;
       font-size: 1rem;
@@ -70,6 +71,7 @@ $gradient-color: linear-gradient(
   .cs-right-container {
     padding: 30px;
     text-align: left;
+    font-family: "FontsFree-Net-Poppins-Regular";
     width: 40%;
     .space-to-upload-image {
       height: auto;
@@ -98,10 +100,12 @@ $gradient-color: linear-gradient(
       box-sizing: border-box;
       margin-bottom: 10px;
       font-size: 1rem;
+      font-family: "FontsFree-Net-Poppins-Regular";
     }
 
     textarea.cs-textarea {
       width: 100%;
+      font-family: "FontsFree-Net-Poppins-Regular";
       // background: #292929;
       outline: none;
       background: rgba(255, 255, 255, 0.15);
@@ -117,6 +121,7 @@ $gradient-color: linear-gradient(
     .cs-label {
       padding-bottom: 4%;
       font-size: 1rem;
+      font-family: "FontsFree-Net-Poppins-Regular";
     }
     input[type="radio"]:checked {
       background-color: red;
@@ -131,12 +136,14 @@ $gradient-color: linear-gradient(
     display: flex;
     flex-direction: column;
     font-size: 1rem;
+    font-family: "FontsFree-Net-Poppins-Regular";
   }
   input[type="radio"]#color {
     accent-color: #fe0000;
   }
   #stream-lebel {
     padding-bottom: 10px;
+    font-family: "FontsFree-Net-Poppins-Regular";
   }
 }
 @media screen and (max-width: 1024px) {

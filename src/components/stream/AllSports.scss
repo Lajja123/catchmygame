@@ -15,6 +15,12 @@
 }
 .t-header {
   font-size: 2rem;
+  letter-spacing: 5px;
+  padding-bottom: 20px;
+  font-family: "SpacePowerDemoRegular";
+}
+.p-header {
+  font-family: "FontsFree-Net-Poppins-Regular";
 }
 .stream-main-content {
   display: grid;
@@ -38,7 +44,7 @@
 .stream-img-main {
   margin: 0px;
 }
-t- .stream-img img {
+.stream-img img {
   object-fit: cover;
   max-width: 100%;
   height: 100%;
@@ -58,7 +64,8 @@ t- .stream-img img {
 }
 .stream-title h4 {
   text-align: left;
-  padding-left: 1rem;
+  font-family: "FontsFree-Net-Poppins-Regular";
+  padding-left: 3.5rem;
 }
 .stream-img-name {
   display: flex;
@@ -70,10 +77,12 @@ t- .stream-img img {
   margin-left: 10px;
   span {
     padding-left: 1rem;
+    font-family: "FontsFree-Net-Poppins-Regular";
   }
 }
 .stream-date span {
-  margin-right: 7rem;
+  margin-right: 2rem;
+  font-family: "FontsFree-Net-Poppins-Regular";
 }
 .stream-main-container-inner-div {
   min-width: 300px;

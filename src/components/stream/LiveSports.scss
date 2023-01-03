@@ -29,6 +29,8 @@
   margin-left: 100px;
   margin-right: 100px;
   margin-top: 20px;
+  font-size: 2rem;
+
   flex-direction: column;
 }
 .livestream-main-content {
@@ -86,11 +88,17 @@
 .livestream-t-header {
   font-size: 2rem;
   padding: 0%;
+  padding-bottom: 20px;
+  letter-spacing: 5px;
+  font-family: "SpacePowerDemoRegular";
   // font-weight: 900;
 }
 // .livestream-date span {
 //   margin-right: 7rem;
 // }
+.livestream-p-header {
+  font-family: "FontsFree-Net-Poppins-Regular";
+}
 .livestream-time span {
   padding-right: 10rem;
 }

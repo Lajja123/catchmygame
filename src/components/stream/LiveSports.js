@@ -35,13 +35,13 @@ function LiveSports() {
         <div className="livestream-main-container">
           <div className="livestream-main-container-inner-div">
             <div className="livestream-header">
-              <h1 className="livestream-t-header">LiveStream</h1>
-              <p className="livestream-p-header">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
-                temporibus sed voluptatem dicta quas vitae quibusdam omnis
-                similique optio sint esse quisquam
-              </p>
+              <h1 className="livestream-t-header">Live Stream</h1>
             </div>
+            <p className="livestream-p-header">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
+              temporibus sed voluptatem dicta quas vitae quibusdam omnis
+              similique optio sint esse quisquam
+            </p>
             {stream.map((stream) => {
               return (
                 <div className="livestream-main-content">

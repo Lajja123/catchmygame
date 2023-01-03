@@ -41,7 +41,7 @@ function AllSports({ account, contract }) {
       <div className="stream-main-container">
         <div className="stream-main-container-inner-div">
           <div className="stream-header">
-            <h1 className="t-header">AllStream</h1>
+            <h1 className="t-header">All Streams</h1>
             <p className="p-header">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
               temporibus sed voluptatem dicta quas vitae quibusdam omnis

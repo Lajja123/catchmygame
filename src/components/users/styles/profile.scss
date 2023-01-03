@@ -54,6 +54,7 @@ $gradient-color: linear-gradient(
       border: 1px solid red;
       border-radius: 10px;
       color: white;
+      font-family: "FontsFree-Net-Poppins-Regular";
       font-size: 0.8rem;
       font-weight: 600;
       padding: 0.5rem 1rem;
@@ -102,7 +103,7 @@ $gradient-color: linear-gradient(
       h1 {
         font-size: 1.5rem;
         border-left: 4px solid $gradient-color;
-        padding-left: 20px;
+        // padding-left: 20px;
         margin: 0;
         color: white;
       }
@@ -116,6 +117,7 @@ $gradient-color: linear-gradient(
           margin: 0%;
           padding: 5% 0;
           color: white;
+          font-family: "FontsFree-Net-Poppins-Regular";
         }
       }
 
@@ -127,6 +129,7 @@ $gradient-color: linear-gradient(
         border: 1px solid #fe0000;
         border-radius: 10px;
         color: white;
+        font-family: "FontsFree-Net-Poppins-Regular";
         font-size: 0.8rem;
         font-weight: 600;
         padding: 0.5rem 1rem;
@@ -150,6 +153,7 @@ $gradient-color: linear-gradient(
       background: none;
       border: none;
       color: white;
+      font-family: "FontsFree-Net-Poppins-Regular";
       font-size: 1rem;
       font-weight: 700;
       // padding: 0.5rem 1rem;

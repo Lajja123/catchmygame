@@ -33,6 +33,7 @@ $gradient-color: linear-gradient(
 }
 .nft-header {
   display: flex;
+
   justify-content: space-around;
   align-items: center;
   margin-left: 100px;
@@ -42,7 +43,10 @@ $gradient-color: linear-gradient(
 
   .t-header {
     color: white;
+    padding-bottom: 20px;
     font-size: 2rem;
+    letter-spacing: 5px;
+    font-family: "SpacePowerDemoRegular";
   }
 }
 .nft-main-content {
@@ -91,6 +95,7 @@ $gradient-color: linear-gradient(
 }
 .nft-user button:hover {
   background-color: #fe0000;
+  font-family: "FontsFree-Net-Poppins-Regular";
 }
 .nft-user button {
   color: white;
@@ -98,6 +103,7 @@ $gradient-color: linear-gradient(
 
 .nft-content button {
   width: 30%;
+  font-family: "FontsFree-Net-Poppins-Regular";
   height: 35px;
   margin-top: 5px;
   border-radius: 10px;
@@ -115,8 +121,10 @@ $gradient-color: linear-gradient(
   align-content: space-around;
   flex-direction: row;
   flex-wrap: nowrap;
+  font-family: "FontsFree-Net-Poppins-Regular";
   span {
     padding-left: 1rem;
+    font-family: "FontsFree-Net-Poppins-Regular";
   }
 }
 @media screen and (max-width: 1024px) {
