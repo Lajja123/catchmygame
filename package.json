@@ -57,6 +57,14 @@
       "last 1 safari version"
     ]
   },
+  "optimization": {
+    "scripts": true,
+    "styles": {
+      "minify": false,
+      "inlineCritical": false
+    },
+    "fonts": true
+  },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.0",
     "ethereum-waffle": "^3.2.0",
