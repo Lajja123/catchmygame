@@ -79,8 +79,15 @@ $gradient-color: linear-gradient(
 
         .connect-btn {
           font-size: 1rem;
+          color: white;
+          border: none;
           cursor: pointer;
-          padding: 5px;
+          padding: 8px 10px;
+          background: $gradient-color;
+          background-size: 600% 200%;
+          animation: gradient 4s linear infinite;
+          animation-direction: alternate;
+          border-radius: 10px;
         }
       }
     }

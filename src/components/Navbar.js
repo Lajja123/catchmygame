@@ -3,14 +3,35 @@ import { Link, useLocation } from "react-router-dom";
 import Cookies from "universal-cookie";
 import { useEffect, useState } from "react";
 import "../styles/Navbar/navbar.scss";
+import Dropdown from "./users/generalblocks/Dropdown";
 import logo from "../styles/logo.png";
 import "../styles/Navbar/navbar.scss";
+// import {navbarItem} from "./users/NavbarItem"
 
 const Navbar = ({ setOpenWalletOption }) => {
   const cookie = new Cookies();
   const [address, setAddress] = useState(cookie.get("account"));
   const location = useLocation();
 
+  const [click, setClick] = useState(false);
+  const [dropdown, setDropdown] = useState(false);
+  const handleClick = () => setClick(!click);
+
+  const onMouseEnter = () => {
+    if (window.innerWidth < 200) {
+      setDropdown(false);
+    } else {
+      setDropdown(true);
+    }
+  };
+
+  const onMouseLeave = () => {
+    if (window.innerWidth < 200) {
+      setDropdown(false);
+    } else {
+      setDropdown(false);
+    }
+  };
   useEffect(() => {
     const addr = cookie.get("account");
     if (addr) {
@@ -46,10 +67,13 @@ const Navbar = ({ setOpenWalletOption }) => {
                   className={
                     window.location.pathname === "/streams" ? "active" : null
                   }
+                  onMouseEnter={onMouseEnter}
+                  onMouseLeave={onMouseLeave}
                 >
-                  <Link to="/streams">All Streams</Link>
+                  <Link to="/streams">Streams</Link>
+                  {dropdown && <Dropdown />}
                 </li>
-                <li
+                {/* <li
                   className={
                     window.location.pathname === "/schedule-stream"
                       ? "active"
@@ -75,7 +99,7 @@ const Navbar = ({ setOpenWalletOption }) => {
                   }
                 >
                   <Link to="/live-stream">Live Stream</Link>
-                </li>
+                </li> */}
                 <li
                   className={
                     window.location.pathname === "/all-artists"
