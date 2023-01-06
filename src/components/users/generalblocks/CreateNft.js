@@ -143,6 +143,7 @@ class CreateNft extends React.Component {
                   width={500}
                   src={this.state.video}
                   crossOrigin="anonymous"
+                  className="cn-video-stream-nft"
                 />
               )}
               {/* <input
@@ -203,6 +204,7 @@ class CreateNft extends React.Component {
                       width={500}
                       src={this.state.gif}
                       alt={"gif"}
+                      className="cn-video-stream-nft"
                     />
                   </div>
 
