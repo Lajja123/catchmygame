@@ -7,6 +7,7 @@ import "./styles/profile.scss";
 import EditProfile from "./generalblocks/EditProfile";
 import "../users/styles/popup.css";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function Profile({ account, contract }) {
   const [imgSrc, setImgSrc] = useState(logo);
@@ -79,7 +80,9 @@ function Profile({ account, contract }) {
                   </p>
                 </div>
                 <div className="profile-info-button">
-                  <button className="profile-btn">Schedule Event</button>
+                  <Link to={"/make-schedule"}>
+                    <button className="profile-btn">Schedule Event</button>
+                  </Link>
                 </div>
               </div>
             </div>

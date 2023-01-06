@@ -9,7 +9,7 @@ import { MediaFactory } from "@zoralabs/core/dist/typechain/MediaFactory";
 import { ethers } from "ethers";
 import onebeat from "./catchMyGame.json";
 import Decimal from "@zoralabs/core/dist/utils/Decimal";
-// import LoadingAnimation from "../users/generalblocks/LoadingAnimation";
+
 import {
   arrayify,
   formatBytes32String,
@@ -22,10 +22,6 @@ const contractAddress = "0x7242137346A89b53477D880c8cFa03d3CbCDe805";
 const ffmpeg = createFFmpeg({ log: true });
 
 class CreateNft extends React.Component {
-  // const [isLoading, setLoading] = React.useState(true);
-  // const [src, setSrc] = React.useState("");
-  // const location = useLocation();
-
   constructor(props) {
     super(props);
     console.log(this.props);
@@ -50,7 +46,7 @@ class CreateNft extends React.Component {
     if (!ffmpeg.isLoaded()) {
       await ffmpeg.load();
     }
-    this.setState({ ready: true });
+    this.setState({ isLoading: true });
   }
 
   async convertVideoToGif() {
@@ -131,7 +127,7 @@ class CreateNft extends React.Component {
   }
 
   render() {
-    return this.state.ready ? (
+    return this.state.isLoading ? (
       <>
         <div className="cs-main-div">
           <div className="cn-main-container">

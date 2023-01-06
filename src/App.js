@@ -18,7 +18,7 @@ import CreateNft from "./components/users/generalblocks/CreateNft";
 /********************* CSS CLASS ********************/
 import "./index.css";
 import "./App.css";
-import { WagmiConfig, createClient } from "wagmi"
+import { WagmiConfig, createClient } from "wagmi";
 import { goerli, polygonMumbai } from "wagmi/chains";
 import {
   ConnectKitProvider,
@@ -171,10 +171,9 @@ function App() {
               </Routes>
             </div>
           </Router>
-
-          {openWalletOption ? <ConnectKitButton /> : null}
         </div>
-      </ConnectKitProvider>
+        {openWalletOption ? <ConnectKitButton /> : null}
+      </ConnectKitProvider>{" "}
     </WagmiConfig>
   );
 }
