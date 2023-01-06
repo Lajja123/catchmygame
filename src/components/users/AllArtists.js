@@ -8,6 +8,8 @@ import { useEffect, useState } from "react";
 import LoadingAnimation from "./generalblocks/LoadingAnimation";
 
 function AllArtists({ account, contract }) {
+
+  console.log(contract)
   const [isLoading, setLoading] = React.useState(true);
   const [data, setData] = useState([]);
   const getProfileData = async (e) => {

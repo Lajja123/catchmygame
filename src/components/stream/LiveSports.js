@@ -12,7 +12,7 @@ function LiveSports() {
   const [stream, setStreams] = useState("");
 
   useReactMediaRecorder({ video: true });
-  const livepeerObject = new Livepeer("d72d5808-9b46-4bdf-9cb6-d703ca3e0acc");
+  const livepeerObject = new Livepeer("77aa98f3-4889-4091-94f7-22eee8b5a79f");
 
   const getStreams = async () => {
     const streams = await livepeerObject.Stream.getAll(1, true, true);
@@ -51,11 +51,11 @@ function LiveSports() {
                         {/* <img src="https://picsum.photos/200" alt="" /> */}
                         <ReactPlayer
                           url={
-                            "https://livepeercdn.com/hls/" +
+                            "https://livepeercdn.studio/hls/" +
                             stream.playbackId +
                             "/index.m3u8"
                           }
-                          controls="true"
+                          
                         />
                       </a>
                       <div class="btn btn_live">

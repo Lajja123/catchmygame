@@ -16,7 +16,7 @@ function CreateStream({ account, contract }) {
   const mounted = useRef(false);
   const [session, setSession] = useState("");
   const [url, setUrl] = useState("");
-  const livepeerObject = new Livepeer("fbf20223-008c-4d6f-8bdb-5d6caec8eb29");
+  const livepeerObject = new Livepeer("77aa98f3-4889-4091-94f7-22eee8b5a79f");
   const client = create("https://ipfs.infura.io:5001/api/v0");
   const getStreams = async () => {
     const streams = await livepeerObject.Stream.getAll({ isActive: false });

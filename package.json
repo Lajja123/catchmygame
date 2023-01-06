@@ -13,6 +13,7 @@
     "@web3-react/core": "^6.1.9",
     "@web3-react/walletlink-connector": "^6.2.14",
     "@zoralabs/core": "^1.0.7",
+    "connectkit": "^1.1.1",
     "hardhat": "^2.10.1",
     "http-proxy-middleware": "^2.0.6",
     "ipfs-http-client": "^57.0.3",
@@ -29,6 +30,7 @@
     "react-three-fiber": "^5.3.22",
     "three": "^0.126.1",
     "universal-cookie": "^4.0.4",
+    "wagmi": "^0.10.4",
     "web-vitals": "^2.1.4",
     "web3.storage": "^4.4.0"
   },
@@ -44,13 +46,13 @@
       "react-app/jest"
     ]
   },
- "browserslist": {
-     "production": [
+  "browserslist": {
+    "production": [
       "chrome >= 67",
       "edge >= 79",
       "firefox >= 68",
       "opera >= 54",
-      "safari >= 14"    
+      "safari >= 14"
     ],
     "development": [
       "last 1 chrome version",
@@ -69,6 +71,6 @@
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.0",
     "ethereum-waffle": "^3.2.0",
-    "ethers": "^5.0.0"
+    "ethers": "^5.7.2"
   }
 }

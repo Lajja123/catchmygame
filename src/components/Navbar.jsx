@@ -6,12 +6,16 @@ import "../styles/Navbar/navbar.scss";
 import Dropdown from "./users/generalblocks/Dropdown";
 import logo from "../styles/logo.png";
 import "../styles/Navbar/navbar.scss";
+import { ConnectKitButton, ConnectKitProvider } from "connectkit";
+import { useAccount } from "wagmi";
+import { useEnsName, useEnsAvatar } from "wagmi";
+import styled from "styled-components";
 // import {navbarItem} from "./users/NavbarItem"
 
 const Navbar = ({ setOpenWalletOption }) => {
+  const [showEnsName, setEnsName] = useState();
   const cookie = new Cookies();
-  const [address, setAddress] = useState(cookie.get("account"));
-  const location = useLocation();
+  const { address, isConnected } = useAccount();
 
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
@@ -32,18 +36,55 @@ const Navbar = ({ setOpenWalletOption }) => {
       setDropdown(false);
     }
   };
-  useEffect(() => {
-    const addr = cookie.get("account");
-    if (addr) {
-      setAddress(addr);
-    }
-  }, [cookie]);
+   const { data:ensName } = useEnsName({
+    address: address,
+    chainId: 5,
+   onSuccess(ensName) {
+    setEnsName(ensName)
+     console.log("ensName", ensName);
+   },
+  })
+  console.log(ensName)
+   const {data:ensAvatar} = useEnsAvatar({
+    address: address,
+    chainId: 5,
+    enabled: false,
+     cacheTime: 2_000,
 
-  useEffect(() => {
-    console.log(location.pathname);
-  }, [location]);
+   onSuccess(ensAvatar, error) {
+      console.log("success", { ensAvatar, error })
+    },
+  })
+  console.log(ensAvatar)
+ 
+
+
+  const StyledButton = styled.button`
+  font-size: 1rem;
+          color: white;
+          border: none;
+          cursor: pointer;
+          padding: 8px 10px;
+          background: red;
+          background-size: 600% 200%;
+          animation: gradient 4s linear infinite;
+          animation-direction: alternate;
+          border-radius: 10px;
+
+  transition: 200ms ease;
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 40px -6px #1a88f8;
+  }
+  &:active {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 32px -6px #1a88f8;
+  }
+`;
+
   return (
     <>
+    
       <div className="navbar-main">
         <div className="navbar-left">
           <div className="navbar-logo">
@@ -132,22 +173,38 @@ const Navbar = ({ setOpenWalletOption }) => {
                 >
                   <Link to="/profile">Profile</Link>
                 </li>
+                <ConnectKitButton.Custom>
+      {({ isConnected, show, truncatedAddress }) => {
+          console.log(ensName)
+        return (<>
+          {/* <StyledButton onClick={show}>
+          
+            {isConnected ? showEnsName ?? truncatedAddress : "Connect Wallet"}
+          </StyledButton> */}
+          <StyledButton  onClick={show}>{ensName ? ensName : address.substring(0,7)+"..."+address.substring(address.length-4,address.length)}</StyledButton></>
+        );
+      }}
+    </ConnectKitButton.Custom>
+     
+    
               </>
             ) : (
               <li>
-                <button
-                  className="connect-btn"
-                  onClick={() => {
-                    setOpenWalletOption(true);
-                  }}
-                >
-                  Connect
-                </button>
+                <ConnectKitButton.Custom>
+      {({ isConnected, show, truncatedAddress, ensName }) => {
+        return (
+          <StyledButton onClick={show}>
+            {isConnected ? ensName ?? truncatedAddress : "Connect Wallet"}
+          </StyledButton>
+        );
+      }}
+    </ConnectKitButton.Custom>
               </li>
             )}
           </ul>
         </div>
       </div>
+      
     </>
   );
 };
