@@ -76,8 +76,8 @@ $gradient-color: linear-gradient(
   width: auto;
   height: auto;
 }
-.nft-video video {
-  width: 100%;
+.nft-video div {
+  width: 100% !important;
   height: auto;
   object-fit: cover;
   object-position: center;

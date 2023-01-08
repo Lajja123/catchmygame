@@ -73,10 +73,10 @@ function Profile({ account, contract }) {
 
                 <div className="profile-nft-info">
                   <p>
-                    Total <span className="nft-span">{no_nft}</span>
+                    Total 1<span className="nft-span">{no_nft}</span>
                   </p>
                   <p>
-                    Total <span className="nft-span">{no_stream}</span>
+                    Total 2<span className="nft-span">{no_stream}</span>
                   </p>
                 </div>
                 <div className="profile-info-button">
@@ -101,20 +101,6 @@ function Profile({ account, contract }) {
             <div className="profile-button-grp">
               <button
                 onClick={() => {
-                  setStreamings(true);
-                  setNFTs(false);
-                  // setCreateNFTs(false);
-                }}
-                className={
-                  showStreamings
-                    ? `profile-second-btns active`
-                    : `profile-second-btns`
-                }
-              >
-                Streamings
-              </button>
-              <button
-                onClick={() => {
                   setStreamings(false);
                   setNFTs(true);
                   // setCreateNFTs(false);
@@ -127,6 +113,21 @@ function Profile({ account, contract }) {
               >
                 NFTs
               </button>
+              <button
+                onClick={() => {
+                  setStreamings(true);
+                  setNFTs(false);
+                  // setCreateNFTs(false);
+                }}
+                className={
+                  showStreamings
+                    ? `profile-second-btns active`
+                    : `profile-second-btns`
+                }
+              >
+                Streamings
+              </button>
+
               {/* <button
                 onClick={() => {
                   setStreamings(false);

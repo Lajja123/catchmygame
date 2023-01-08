@@ -43,11 +43,11 @@ function AllSports({ account, contract }) {
         <div className="stream-main-container-inner-div">
           <div className="stream-header">
             <h1 className="t-header">All Streams</h1>
-            <p className="p-header">
+            {/* <p className="p-header">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
               temporibus sed voluptatem dicta quas vitae quibusdam omnis
               similique optio sint esse quisquam
-            </p>
+            </p> */}
           </div>
           <div className="stream-main-content">
             {data.map((inde) => {

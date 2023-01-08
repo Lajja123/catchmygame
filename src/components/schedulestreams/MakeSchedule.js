@@ -6,7 +6,7 @@ import { useState, useRef } from "react";
 import { useEffect } from "react";
 import Upload from "../homepage/assets/Component.svg";
 // import Upload from "../styles/man.png";
-import pic from "./b-img.jpg";
+// import pic from "./music.jpg";
 function MakeSchedule({ account, contract }) {
   const [title, setTitle] = useState("");
   const [des, setDes] = useState("");
