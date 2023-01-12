@@ -4,11 +4,12 @@ import { Client } from "@livepeer/webrtmp-sdk";
 import Livepeer from "livepeer-nodejs";
 import { create, CID } from "ipfs-http-client";
 import "./createstream.scss";
+import { useAccount } from "wagmi";
 
 import cover from "../users/styles/Gaming4-5.jpg";
 import { Web3Storage } from "web3.storage";
 import { Link } from "react-router-dom";
-const user_address = "0xb14bd4448Db2fe9b4DBb1D7b8097D28cA57A8DE9";
+// const user_address = "0xb14bd4448Db2fe9b4DBb1D7b8097D28cA57A8DE9";
 
 function CreateStream({ account, contract }) {
   const videoEl = useRef(null);
@@ -24,6 +25,7 @@ function CreateStream({ account, contract }) {
   };
 
   //
+  const { address } = useAccount();
   const [title, setTitle] = useState("");
   const [des, setDes] = useState("");
   const [add, setAdd] = useState("");
@@ -62,17 +64,19 @@ function CreateStream({ account, contract }) {
   }
 
   const onButtonClick = async () => {
-    (async () => {
-      videoEl.current.volume = 0;
+    videoEl.current.volume = 0;
 
-      stream.current = await navigator.mediaDevices.getUserMedia({
-        video: true,
-        audio: true,
-      });
-      videoEl.current.srcObject = stream.current;
-      videoEl.current.play();
-    })();
+    stream.current = await navigator.mediaDevices.getDisplayMedia({
+      video: true,
+      audio: true,
+      screen: true,
+    });
+    videoEl.current.srcObject = stream.current;
+    videoEl.current.play();
 
+    console.log(stream.current);
+
+    // console.log(stream.current.active);
     const stream_ = await livepeerObject.Stream.create({
       name: "test_stream",
       profiles: [
@@ -101,19 +105,23 @@ function CreateStream({ account, contract }) {
     });
     console.log(stream_);
     console.log(stream_.streamKey);
-    // const tx = await contract.createStream(
-    //   account,
-    //   title,
-    //   des,
-    //   "0xfe039eb325231e046f06f828c41382ac59f73e45",
-    //   showUploaded_image,
-    //   record
-    // );
-    // tx.wait();
+    console.log(stream_);
+    console.log(stream_.streamKey);
+    const tx = await contract.createStream(
+      address,
+      title,
+      des,
+      add,
+      showUploaded_image,
+      stream_.id,
+      record
+    );
+    tx.wait();
     console.log(title);
     console.log(des);
     console.log(add);
     console.log(record);
+    console.log(stream_.id);
     stream_.setRecord(true);
     const current_stream = await livepeerObject.Stream.get(stream_.id);
     console.log("video id" + stream_.id);
@@ -122,7 +130,6 @@ function CreateStream({ account, contract }) {
     const url =
       "https://livepeercdn.com/hls/" + stream_.playbackId + "index.m3u8";
     setUrl(url);
-    console.log(url);
     const streamKey = stream_.streamKey;
 
     if (!stream.current) {
@@ -141,6 +148,7 @@ function CreateStream({ account, contract }) {
     session.on("open", () => {
       console.log("Stream started.");
       alert("Stream started; visit Livepeer Dashboard.");
+      
     });
 
     session.on("close", () => {
@@ -150,35 +158,24 @@ function CreateStream({ account, contract }) {
     session.on("error", (err) => {
       console.log("Stream error.", err.message);
     });
+
+    // console.log(title);
+    // console.log(des);
+    // console.log(add);
+    // console.log(record);
   };
 
   const closeStream = async () => {
-    session.close("close", () => {
-      console.log("Stream stopped.");
-    });
+    window.location.reload();
+    // session.close();
   };
+
   useEffect(() => {
     if (!mounted) {
       closeStream();
     }
   }, [mounted]);
   const hero_Image = useRef(null);
-
-  // const getUserDetails = async (e) => {
-  //   const tx = await contract.createStream(
-  //     account,
-  //     title,
-  //     des,
-  //     "0xfe039eb325231e046f06f828c41382ac59f73e45",
-  //     showUploaded_image,
-  //     record
-  //   );
-  //   tx.wait();
-  //   console.log(title);
-  //   console.log(des);
-  //   console.log(add);
-  //   console.log(record);
-  // };
 
   return (
     <>
@@ -204,11 +201,11 @@ function CreateStream({ account, contract }) {
                 <button className="cs-button" onClick={onButtonClick}>
                   Start
                 </button>
-                <Link to={"/create-nft"}>
+                {/* <Link to={"/create-nft"}>
                   <button className="cs-button" onClick={closeStream}>
                     Stop
                   </button>
-                </Link>
+                </Link> */}
               </div>
             </div>
             <div className="cs-right-container">

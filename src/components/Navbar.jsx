@@ -15,7 +15,8 @@ import styled from "styled-components";
 const Navbar = ({ setOpenWalletOption }) => {
   const [showEnsName, setEnsName] = useState();
   const cookie = new Cookies();
-  const { address, isConnected } = useAccount();
+    const { address, isConnected, isDisconnected } = useAccount();
+
 
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
@@ -102,7 +103,7 @@ const Navbar = ({ setOpenWalletOption }) => {
               <Link to="/">Home</Link>
             </li>
             <div className="dropdown-content"></div>
-            {address ? (
+            {isConnected ? (
               <>
                 <li
                   className={
@@ -191,10 +192,10 @@ const Navbar = ({ setOpenWalletOption }) => {
             ) : (
               <li>
                 <ConnectKitButton.Custom>
-      {({ isConnected, show, truncatedAddress, ensName }) => {
+      {({ isDisconnected, show, truncatedAddress, ensName }) => {
         return (
           <StyledButton onClick={show}>
-            {isConnected ? ensName ?? truncatedAddress : "Connect Wallet"}
+            {isDisconnected ? ensName ?? truncatedAddress : "Connect Wallet"}
           </StyledButton>
         );
       }}

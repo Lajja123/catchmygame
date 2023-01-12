@@ -15,10 +15,11 @@ import MakeSchedule from "./components/schedulestreams/MakeSchedule";
 import SingleUser from "./components/users/SingleUser";
 import Profile from "./components/users/Profile";
 import CreateNft from "./components/users/generalblocks/CreateNft";
+import CreateN from "./components/users/CreateN";
 /********************* CSS CLASS ********************/
 import "./index.css";
 import "./App.css";
-import { WagmiConfig, createClient } from "wagmi"
+import { WagmiConfig, createClient } from "wagmi";
 import { goerli, polygonMumbai } from "wagmi/chains";
 import {
   ConnectKitProvider,
@@ -168,6 +169,7 @@ function App() {
                   element={<Profile contract={contract} account={address} />}
                 />
                 <Route exact path="/create-nft" element={<CreateNft />} />
+                <Route exact path="/create" element={<CreateN />} />
               </Routes>
             </div>
           </Router>

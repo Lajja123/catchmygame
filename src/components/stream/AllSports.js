@@ -2,13 +2,18 @@ import React from "react";
 import "../stream/AllSports.scss";
 import img from "../stream/man.png";
 import { useEffect, useState } from "react";
+import Livepeer from "livepeer-nodejs";
 import LoadingAnimation from "../users/generalblocks/LoadingAnimation";
+// import user from '../../artifacts/contracts/CatchMyGame.sol/CatchMyGame.json'
+import user from '../../artifacts/contracts/userStream.json'
 
 function AllSports({ account, contract }) {
   const [isLoading, setLoading] = React.useState(true);
   const [data, setData] = useState([]);
-
+ const livepeerObject = new Livepeer("77aa98f3-4889-4091-94f7-22eee8b5a79f");
+ 
   const getProfileData = async (e) => {
+      const streams = await livepeerObject.Stream.getAll(1, false, true);
     let number = await contract.getTotalStreamNumber();
     number = parseInt(number._hex, 16);
     for (let i = 1; i <= number; i++) {

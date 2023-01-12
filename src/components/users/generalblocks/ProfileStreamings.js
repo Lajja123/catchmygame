@@ -5,6 +5,9 @@ import img from "../styles/Gaming4-5.jpg";
 import logo from "../styles/man.png";
 import { useEffect, useState } from "react";
 import CreateNft from "./CreateNft";
+import axios from "axios";
+import { ethers } from "ethers";
+import Nft from "../../../artifacts/contracts/nft.json";
 
 function ProfileStreamings({ account, contract }) {
   const [isLoading, setLoading] = React.useState(true);
@@ -13,6 +16,7 @@ function ProfileStreamings({ account, contract }) {
   const [no_stream, setNoStream] = useState();
   const [data, setData] = useState([]);
   const [id, setId] = useState();
+  const [nftData, setNftData] = useState([]);
 
   const getProfileData = async (e) => {
     const n = await contract.getCreator(account);
@@ -20,18 +24,24 @@ function ProfileStreamings({ account, contract }) {
       setName(n.creatorName);
     }
     let streams = await contract.getStreamId(account);
+    // console.log(streams.lenght);
     for (let i = 0; i < streams.length; i++) {
       let id = parseInt(streams[i]._hex, 16);
       const streamStruct = await contract.getAllStream(id);
+      // console.log(streamStruct);
       const t = streamStruct.title;
+      const d = streamStruct.description;
+      const creator = streamStruct.stream_creator;
       const cid = streamStruct.img_cid;
       const v_id = streamStruct.video_id;
-      console.log("vid" + v_id);
-      data.push([t, cid, v_id]);
+      // console.log("vid" + v_id);
+
+      data.push([t, cid, creator, d, v_id]);
     }
     setData(data);
     setLoading(false);
   };
+  console.log(data);
 
   useEffect(() => {
     getProfileData();
@@ -52,12 +62,65 @@ function ProfileStreamings({ account, contract }) {
 
     navigate("/stream-play", { state: { id: id } });
   };
+  console.log(nftData.nftImage);
+
+  //---------------------------------------NFT Mint -------------------------------//
+  const nft_contract_address = "0x0383e8f0790Fc80Ce409B18b5Ff42534abFB3513";
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const signer = provider.getSigner();
+
+  const mintNft = async () => {
+    var title = nftData.nftTitle;
+    var fileurl = nftData.nftImage;
+    var desc = nftData.nftDes;
+    var metadataUri;
+    const metadata = {
+      method: "POST",
+      url: "https://api.nftport.xyz/v0/metadata",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "4455109c-4819-40f5-9ec5-5882af32a7ed",
+      },
+      data: {
+        name: title,
+        description: desc,
+        file_url: fileurl,
+      },
+    };
+
+    await axios
+      .request(metadata)
+      .then(function (response) {
+        console.log(response.data);
+        metadataUri = response.data.metadata_uri;
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+
+    console.log(metadataUri);
+    const account = await window.ethereum.request({
+      method: "eth_requestAccounts",
+    });
+
+    var address = account[0];
+    const mintNft = new ethers.Contract(nft_contract_address, Nft, signer);
+    const mintNFT = await mintNft.storeNft(
+      // "0xeB05322B3C154121AA9114C570e393033074E1E2",
+      address,
+      metadataUri,
+      true
+    );
+    console.log(mintNFT);
+  };
+
   return (
     <>
       <section className="ps-main-container">
         <section className="ps-grid-container">
           {/* **************************** */}
           {/* ************************************ */}
+
           {data.map((inde) => {
             return (
               <div className="ps-grid-div">
@@ -110,15 +173,26 @@ function ProfileStreamings({ account, contract }) {
                   <h6>{name}</h6>
                 </div>
                 <div className="ps-stream-time">
-                  <h6>1 year ago</h6>
+                  <h6>{inde[3]}</h6>
                 </div>
                 <div className="ps-grid-title">
-                  <Link
+                  {/* <Link
                     to="/create-nft"
-                    state={{ id: 1, name: "sabaoon", shirt: "green" }}
+                    state={{ id: 1, name: "abc", shirt: "green" }}
+                  > */}
+                  <button
+                    onClick={() => {
+                      setNftData({
+                        nftImage: inde[1],
+                        nftTitle: inde[0],
+                        nftDes: inde[3],
+                      });
+                      mintNft();
+                    }}
                   >
-                    <button>Create NFT</button>
-                  </Link>
+                    Create NFT
+                  </button>
+                  {/* </Link> */}
                 </div>
               </div>
             );

@@ -33,49 +33,47 @@ function LiveSports() {
     return (
       <>
         <div className="livestream-main-container">
-          <div className="livestream-main-container-inner-div">
-            <div className="livestream-header">
-              <h1 className="livestream-t-header">LiveStream</h1>
-            </div>
+          <div className="livestream-header">
+            <h1 className="livestream-t-header">LiveStream</h1>
             <p className="livestream-p-header">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
               temporibus sed voluptatem dicta quas vitae quibusdam omnis
               similique optio sint esse quisquam
             </p>
-            {stream.map((stream) => {
-              return (
-                <div className="livestream-main-content">
-                  <div className="livestream-content">
-                    <div className="livestream-img">
-                      <a>
-                        {/* <img src="https://picsum.photos/200" alt="" /> */}
-                        <ReactPlayer
-                          url={
-                            "https://livepeercdn.studio/hls/" +
-                            stream.playbackId +
-                            "/index.m3u8"
-                          }
-                          
-                        />
-                      </a>
-                      <div class="btn btn_live">
-                        Live<span class="live-icon"></span>
-                      </div>
+          </div>
+          {stream.map((stream) => {
+            return (
+              <div className="livestream-main-content">
+                <div className="livestream-content">
+                  <div className="livestream-img">
+                    <a>
+                      {/* <img src="https://picsum.photos/200" alt="" /> */}
+                      <ReactPlayer
+                        url={
+                          "https://livepeercdn.com/hls/" +
+                          stream.playbackId +
+                          "/index.m3u8"
+                        }
+                        controls="true"
+                      />
+                    </a>
+                    <div class="btn btn_live">
+                      Live<span class="live-icon"></span>
                     </div>
+                  </div>
 
-                    <div className="livestream-title">
-                      <h4>The news you asking thought, king’s</h4>
-                    </div>
-                    <div className="livestream-user">
-                      <div className="livestream-img-name">
-                        <span>user name</span>
-                      </div>
+                  <div className="livestream-title">
+                    <h4>The news you asking thought, king’s</h4>
+                  </div>
+                  <div className="livestream-user">
+                    <div className="livestream-img-name">
+                      <span>user name</span>
                     </div>
                   </div>
                 </div>
-              );
-            })}
-          </div>
+              </div>
+            );
+          })}
         </div>
       </>
     );
