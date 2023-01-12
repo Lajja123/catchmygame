@@ -22,16 +22,25 @@ $gradient-color: linear-gradient(
   max-width: 1200px;
   // width: 100%;
   margin: 0 auto;
-  height: auto;
+  // height: auto;
+  margin-bottom: 70px;
   padding: 10px;
+  // padding-top: 120px;
+}
+.createstream-t-header {
+  font-size: 2rem;
+  letter-spacing: 5px;
+  padding-bottom: 20px;
   padding-top: 90px;
+  font-family: "SpacePowerDemoRegular";
 }
 .cs {
   width: 100%;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: auto;
+  min-height: 88vh;
   z-index: -1;
   // position: fixed;
   background-image: linear-gradient(
@@ -67,6 +76,10 @@ $gradient-color: linear-gradient(
     button.cs-button:hover {
       cursor: pointer;
     }
+  }
+  .texttag {
+    font-family: "FontsFree-Net-Poppins-Regular";
+    font-size: 1rem;
   }
   .cs-right-container {
     padding: 30px;

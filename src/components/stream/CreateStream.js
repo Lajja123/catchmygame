@@ -27,11 +27,19 @@ function CreateStream({ account, contract }) {
   const [title, setTitle] = useState("");
   const [des, setDes] = useState("");
   const [add, setAdd] = useState("");
+  const [isDisabled, setDisabled] = useState(false);
   const [record, setRecord] = useState("");
-
+  const [isHovering, setIsHovering] = useState(false);
   const [heroImage, setHeroImage] = useState();
   const [showUploaded_image, setUploadedImage] = useState();
 
+  const handleMouseOver = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseOut = () => {
+    setIsHovering(false);
+  };
   async function UploadImage(e) {
     const file = await e.target.files[0];
     console.log(file);
@@ -186,12 +194,9 @@ function CreateStream({ account, contract }) {
     <>
       <section className="cs">
         <div className="cs-main-container">
-          {/* <input
-          className="cs-input"
-          ref={inputEl}
-          type="text"
-          placeholder="streamKey"
-        /> */}
+          <div className="create-stream-header">
+            <h1 className="createstream-t-header">Create Stream</h1>
+          </div>
 
           <div className="cs-inner-div">
             <div className="cs-left-container">
@@ -203,14 +208,54 @@ function CreateStream({ account, contract }) {
                 width="500px"
               />
               <div className="cs-btns">
-                <button className="cs-button" onClick={onButtonClick}>
-                  Start
-                </button>
-                <Link to={"/create-nft"}>
-                  <button className="cs-button" onClick={closeStream}>
-                    Stop
-                  </button>
-                </Link>
+                {title.length > 0 &&
+                des.length > 0 &&
+                add.length > 0 &&
+                heroImage ? (
+                  <>
+                    <button
+                      className="cs-button"
+                      onMouseOver={handleMouseOver}
+                      onMouseOut={handleMouseOut}
+                      onClick={onButtonClick}
+                    >
+                      Start
+                    </button>
+
+                    <Link to={"/create-nft"}>
+                      <button className="cs-button" onClick={closeStream}>
+                        Stop
+                      </button>
+                    </Link>
+                  </>
+                ) : (
+                  <>
+                    <button
+                      disabled
+                      className="cs-button"
+                      onMouseOver={handleMouseOver}
+                      onMouseOut={handleMouseOut}
+                      onClick={onButtonClick}
+                    >
+                      Start
+                    </button>
+
+                    <Link to={"/create-nft"}>
+                      <button
+                        disabled
+                        className="cs-button"
+                        onClick={closeStream}
+                      >
+                        Stop
+                      </button>
+                    </Link>
+                  </>
+                )}
+                {isHovering && (
+                  <div className="texttag">
+                    Create your live stream by clicking start button
+                  </div>
+                )}
               </div>
             </div>
             <div className="cs-right-container">
@@ -326,6 +371,9 @@ function CreateStream({ account, contract }) {
               </form>
             </div>
           </div>
+        </div>
+        <div className="landigpage-footer ">
+          Copyright © 2023 CatchMyGame. All Rights Reserved
         </div>
       </section>
     </>

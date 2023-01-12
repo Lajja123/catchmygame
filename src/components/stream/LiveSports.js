@@ -70,6 +70,9 @@ function LiveSports() {
             </div>
           </div>
         </div>
+        <div className="landigpage-footer ">
+          Copyright © 2023 CatchMyGame. All Rights Reserved
+        </div>
       </div>
     </>
   );

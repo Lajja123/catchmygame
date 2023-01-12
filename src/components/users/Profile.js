@@ -154,6 +154,9 @@ function Profile({ account, contract }) {
             ) : null} */}
           </section>
         </div>
+        <div className="landigpage-footer ">
+          Copyright © 2023 CatchMyGame. All Rights Reserved
+        </div>
       </section>
     </>
   );
