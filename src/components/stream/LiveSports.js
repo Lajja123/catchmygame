@@ -34,7 +34,7 @@ function LiveSports() {
       <>
         <div className="livestream-main-container">
           <div className="livestream-header">
-            <h1 className="livestream-t-header">LiveStream</h1>
+            <div className="livestream-t-header">LiveStream</div>
             <p className="livestream-p-header">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
               temporibus sed voluptatem dicta quas vitae quibusdam omnis

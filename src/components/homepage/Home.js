@@ -6,6 +6,7 @@ import Livepeerlogo from "./assets/Livepeer.svg";
 import Polygonelogo from "./assets/polygon.svg";
 import nftportlogo from "./assets/nftport.svg";
 import Zoralogo from "./assets/zora.svg";
+import { Chat } from "@pushprotocol/uiweb";
 function Landingpage() {
   return (
     <>
@@ -32,6 +33,14 @@ function Landingpage() {
               <img src={nftportlogo} className="nftstoragelogo" />
             </div>
           </div>
+        </div>
+        <div>
+          <Chat
+            account="0x6430C47973FA053fc8F055e7935EC6C2271D5174" //user address
+            supportAddress="0xd9c1CCAcD4B8a745e191b62BA3fcaD87229CB26d" //support address
+            apiKey="jVPMCRom1B.iDRMswdehJG7NpHDiECIHwYMMv6k2KzkPJscFIDyW8TtSnk4blYnGa8DIkfuacU0"
+            env="staging"
+          />
         </div>
 
         <div className="landigpage-footer ">
