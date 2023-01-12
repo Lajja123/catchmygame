@@ -34,7 +34,8 @@ $gradient-color: linear-gradient(
   margin: 0 auto;
   height: auto;
   padding: 10px;
-  padding-top: 70px;
+  padding-top: 90px;
+  margin-bottom: 70px;
 }
 
 h1 {
@@ -81,6 +82,7 @@ input.ms-input {
 textarea {
   resize: none;
   font-family: "FontsFree-Net-Poppins-Regular";
+  font-size: 1rem;
 }
 textarea:focus,
 input:focus {
@@ -89,7 +91,7 @@ input:focus {
 }
 .action-button {
   background: $gradient-color;
-  border: 1px solid #fe0000;
+  border: none;
   margin: 0 auto;
   margin-top: 50px;
   padding: 0.5rem 1rem;
@@ -105,7 +107,7 @@ input:focus {
   // box-shadow: 0 0 20px #eee;
   border-radius: 10px;
   display: block;
-  font-size: 1rem;
+  font-size: 0.9rem;
   cursor: pointer;
 }
 
@@ -144,7 +146,7 @@ input:focus {
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: 90vh;
   z-index: -1;
   // position: fixed;
   background-image: linear-gradient(

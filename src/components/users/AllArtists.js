@@ -20,12 +20,14 @@ function AllArtists({ account, contract }) {
       number_stream = parseInt(number_stream._hex, 16);
       data.push([n.photo_cid, n.creatorName, n.tokens.length, number_stream]);
     }
+    setData(data);
     setLoading(false);
   };
   
 
   useEffect(() => {
     getProfileData();
+
     // setLoading(false);
   }, [contract]);
 
@@ -50,6 +52,7 @@ function AllArtists({ account, contract }) {
                       alt="video_cover"
                       height="100%"
                       width="100%"
+                      crossOrigin="anonymous"
                     />
                     <div className="au-middle-p">
                       <div class="au-middle">
@@ -66,6 +69,9 @@ function AllArtists({ account, contract }) {
             })}
             {/* ************************************************************* */}
           </div>
+        </div>
+        <div className="landigpage-footer ">
+          Copyright © 2023 CatchMyGame. All Rights Reserved
         </div>
       </section>
     </>

@@ -51,7 +51,7 @@ class CreateNft extends React.Component {
     if (!ffmpeg.isLoaded()) {
       await ffmpeg.load();
     }
-    this.setState({ ready: true });
+    this.setState({ isLoading: true });
   }
 
   async convertVideoToGif() {
@@ -133,7 +133,7 @@ class CreateNft extends React.Component {
 
   //  var location = useLocation();
   render() {
-    return this.state.ready ? (
+    return this.state.isLoading ? (
       <>
         <div className="cn-main-container">
           <div className="cn-left-container">

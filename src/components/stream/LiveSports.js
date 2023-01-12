@@ -75,10 +75,15 @@ function LiveSports() {
             );
           })}
         </div>
+        <div className="landigpage-footer ">
+          Copyright © 2023 CatchMyGame. All Rights Reserved
+        </div>
       </>
     );
-  } else {
-    console.log("no");
+    //   } else {
+    //     console.log("no");
+    //   }
+    // }
   }
 }
 export default LiveSports;

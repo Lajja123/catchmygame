@@ -22,3 +22,8 @@ code {
   src: local("FontsFree-Net-Poppins-Regular"),
     url("./styles/fonts/FontsFree-Net-Poppins-Regular.ttf") format("truetype");
 }
+
+button:disabled {
+  opacity: 0.5;
+  cursor: auto;
+}

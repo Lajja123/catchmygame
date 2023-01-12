@@ -67,6 +67,7 @@ function App() {
   const { address } = useAccount();
   console.log(address);
   const provider = new ethers.providers.Web3Provider(window.ethereum);
+
   const signer = provider.getSigner();
 
   console.log(signer);
@@ -112,71 +113,65 @@ function App() {
         <div className="App">
           <Router>
             <Navbar setOpenWalletOption={setOpenWalletOption} />
-            <div className="main-content">
-              <Routes>
-                <Route exact path="/" element={<Home />} />
-                {/* <Route exact path="/" element={<Stream />} /> */}
-                <Route
-                  exact
-                  path="/live-stream"
-                  element={<LiveSports contract={contract} account={address} />}
-                />
-                <Route
-                  exact
-                  path="/create-stream"
-                  element={
-                    <CreateStream contract={contract} account={address} />
-                  }
-                  account
-                />
-                <Route
-                  exact
-                  path="/schedule-stream"
-                  element={
-                    <ScheduledStreams contract={contract} account={address} />
-                  }
-                />
-                <Route
-                  exact
-                  path="/streams"
-                  element={<AllStreams contract={contract} account={address} />}
-                />
-                <Route
-                  exact
-                  path="/all-artists"
-                  element={<AllArtists contract={contract} account={address} />}
-                />
-                <Route
-                  exact
-                  path="/all-nfts"
-                  element={<AllNfts contract={contract} account={address} />}
-                />
-                <Route
-                  exact
-                  path="/make-schedule"
-                  element={
-                    <MakeSchedule contract={contract} account={address} />
-                  }
-                />
-                <Route
-                  exact
-                  path="/user/"
-                  element={<SingleUser contract={contract} account={address} />}
-                />
-                <Route
-                  exact
-                  path="/profile"
-                  element={<Profile contract={contract} account={address} />}
-                />
-                <Route exact path="/create-nft" element={<CreateNft />} />
-                <Route exact path="/create" element={<CreateN />} />
-              </Routes>
-            </div>
+            {/* <div className="main-content"> */}
+            <Routes>
+              <Route exact path="/" element={<Home />} />
+              {/* <Route exact path="/" element={<Stream />} /> */}
+              <Route
+                exact
+                path="/live-stream"
+                element={<LiveSports contract={contract} account={address} />}
+              />
+              <Route
+                exact
+                path="/create-stream"
+                element={<CreateStream contract={contract} account={address} />}
+                account
+              />
+              <Route
+                exact
+                path="/schedule-stream"
+                element={
+                  <ScheduledStreams contract={contract} account={address} />
+                }
+              />
+              <Route
+                exact
+                path="/streams"
+                element={<AllStreams contract={contract} account={address} />}
+              />
+              <Route
+                exact
+                path="/all-artists"
+                element={<AllArtists contract={contract} account={address} />}
+              />
+              <Route
+                exact
+                path="/all-nfts"
+                element={<AllNfts contract={contract} account={address} />}
+              />
+              <Route
+                exact
+                path="/make-schedule"
+                element={<MakeSchedule contract={contract} account={address} />}
+              />
+              <Route
+                exact
+                path="/user/"
+                element={<SingleUser contract={contract} account={address} />}
+              />
+              <Route
+                exact
+                path="/profile"
+                element={<Profile contract={contract} account={address} />}
+              />
+              <Route exact path="/create-nft" element={<CreateNft />} />
+            </Routes>
+            {/* </div> */}
           </Router>
-
-          {openWalletOption ? <ConnectKitButton /> : null}
         </div>
-      </ConnectKitProvider>
+        {openWalletOption ? <ConnectKitButton /> : null}
+      </ConnectKitProvider>{" "}
     </WagmiConfig>
   );
 }
